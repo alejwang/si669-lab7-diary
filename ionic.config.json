@@ -1,5 +1,7 @@
 {
-  "name": "si669-mini-project-2-diary",
-  "integrations": {},
+  "name": "si669-project2-diary",
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }

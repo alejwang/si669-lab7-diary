@@ -1,14 +1,32 @@
+
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      My Diary
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-list>
+    <ion-item>
+      <button ion-button full (click)="addEntry()">Add Entry</button>
+    </ion-item>
+    <ion-item *ngFor="let entry of entries">
+
+      <button ion-button clear icon-only item-start
+              (click)="deleteEntry(entry.id)">
+        <ion-icon name="close-circle"></ion-icon>
+      </button>
+      <ion-label (click)="editEntry(entry.id)">
+        <h2>{{entry.title}}</h2>
+      </ion-label>
+      <ion-label>
+        <p>{{entry.text}}</p>
+      </ion-label>
+      <ion-label>
+        <p>{{entry.timestamp | date:'hh:mm M/d/yy'}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

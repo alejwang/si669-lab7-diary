@@ -1,5 +1,5 @@
 {
-  "name": "si669-mini-project-2-diary",
+  "name": "si669-project2-diary",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
@@ -23,7 +23,7 @@
     "@ionic-native/core": "~4.15.0",
     "@ionic-native/splash-screen": "~4.15.0",
     "@ionic-native/status-bar": "~4.15.0",
-    "@ionic/storage": "2.2.0",
+    "@ionic/storage": "^2.2.0",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
     "rxjs": "5.5.11",
@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.2.0",
+    "@ionic/lab": "1.0.12",
     "typescript": "~2.6.2"
   },
   "description": "An Ionic project"

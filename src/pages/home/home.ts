@@ -1,14 +1,44 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { EntryDetailPage } from '../entry-detail/entry-detail';
+import { Entry } from '../../models/entry';
+import { EntryDataServiceProvider } from '../../providers/entry-data-service/entry-data-service';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
+
+
 export class HomePage {
+  private entries: Entry[];
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,
+              private entryService: EntryDataServiceProvider) {
+    this.entryService.getObservable().subscribe(
+      (update) => {
+          console.log(update)
+          this.entries = entryService.getEntries();
+          console.log(this.entries);
+          },
+      (err) => {
+        console.log(err);
+      });
 
+    this.entries = entryService.getEntries();
   }
 
+  private addEntry() {
+    this.navCtrl.push(EntryDetailPage);
+  }
+
+  private editEntry(entryID: number) {
+    console.log("editing entry ", entryID);
+    this.navCtrl.push(EntryDetailPage, {"entryID": entryID});
+  }
+
+  private deleteEntry(entryID: number) {
+    this.entryService.removeEntry(entryID);
+    console.log("deleting entry", entryID);
+  }
 }
